@@ -8,8 +8,8 @@ import (
 	"github.com/hugaojanuario/api-rest-gin/models"
 )
 
-func ExibeTodosOsAlunos(c *gin.Context) {
-	var alunos [] models.Aluno
-	databases.DB.Find(&alunos)
-	c.JSON(http.StatusOK, alunos)
+func FindAllStudents(c *gin.Context) {
+	var student []models.Student
+	databases.DB.Find(&student)
+	c.JSON(http.StatusOK, student)
 }

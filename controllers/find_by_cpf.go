@@ -8,18 +8,18 @@ import (
 	"github.com/hugaojanuario/api-rest-gin/models"
 )
 
-func BuscarPorCpf(c *gin.Context) {
-	var aluno models.Aluno
+func FindByCpf(c *gin.Context) {
+	var student models.Student
 	cpf := c.Param("cpf")
-	databases.DB.Where(&models.Aluno{CPF: cpf}).First(&aluno)
+	databases.DB.Where(&models.Student{CPF: cpf}).First(&student)
 
-	if aluno.ID == 0 {
+	if student.ID == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"massage": "aluno nao encontrado",
+			"massage": "student nao encontrado",
 		})
 		return
 	}
 
-	c.JSON(200, aluno)
+	c.JSON(200, student)
 
 }

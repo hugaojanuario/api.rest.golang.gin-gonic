@@ -8,17 +8,17 @@ import (
 	"github.com/hugaojanuario/api-rest-gin/models"
 )
 
-func EditarAluno(c *gin.Context) {
-	var aluno models.Aluno
+func EdtingStudent(c *gin.Context) {
+	var student models.Student
 	id := c.Params.ByName("id")
-	databases.DB.First(&aluno, id)
+	databases.DB.First(&student, id)
 
-	if err := c.ShouldBindJSON(&aluno); err != nil {
+	if err := c.ShouldBindJSON(&student); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"erro": err.Error()})
 		return
 	}
-	databases.DB.Model(&aluno).UpdateColumns(aluno)
-	c.JSON(http.StatusOK, aluno)
-	
+	databases.DB.Model(&student).UpdateColumns(student)
+	c.JSON(http.StatusOK, student)
+
 }

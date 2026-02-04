@@ -8,13 +8,13 @@ import (
 	"github.com/hugaojanuario/api-rest-gin/models"
 )
 
-func CriarNovoAluno(c *gin.Context) {
-	var aluno models.Aluno
-	if err := c.ShouldBindJSON(&aluno); err != nil {
+func CreatedStudent(c *gin.Context) {
+	var student models.Student
+	if err := c.ShouldBindJSON(&student); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"erro": err.Error()})
 		return
 	}
-	databases.DB.Create(&aluno)
-	c.JSON(http.StatusCreated, aluno)
+	databases.DB.Create(&student)
+	c.JSON(http.StatusCreated, student)
 }

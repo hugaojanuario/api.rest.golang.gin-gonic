@@ -2,11 +2,11 @@ package models
 
 import "gorm.io/gorm"
 
-type Aluno struct {
+type Student struct {
 	gorm.Model
-	
-	Nome string `json"nome"`
-	CPF string `json"cpf"`
+
+	Name string `json"name"`
+	CPF  string `json"cpf"`
 }
 
-var Alunos []Aluno
+var Students []Student

@@ -8,17 +8,17 @@ import (
 	"github.com/hugaojanuario/api-rest-gin/models"
 )
 
-func BuscarPorId(c *gin.Context) {
-	var aluno models.Aluno
+func FindById(c *gin.Context) {
+	var student models.Student
 	id := c.Params.ByName("id")
-	databases.DB.First(&aluno, id)
+	databases.DB.First(&student, id)
 
-	if aluno.ID == 0 {
+	if student.ID == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"massage": "aluno nao encontrado",
 		})
 		return
 	}
-	c.JSON(http.StatusOK, aluno)
+	c.JSON(http.StatusOK, student)
 
 }

@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	databases.ConectaComBancoDeDados()
+	databases.ConectingInDatabase()
 	routes.HandleRequests()
 }

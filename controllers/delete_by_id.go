@@ -8,12 +8,12 @@ import (
 	"github.com/hugaojanuario/api-rest-gin/models"
 )
 
-func DeletarPorId(c *gin.Context) {
-	var aluno models.Aluno
+func DeleteById(c *gin.Context) {
+	var aluno models.Student
 	id := c.Params.ByName("id")
 
 	databases.DB.Delete(&aluno, id)
 	c.JSON(http.StatusOK, gin.H{
-		"massage":"delete if sucessed",
+		"massage": "delete if sucessed",
 	})
 }
