@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hugaojanuario/api-rest-gin/controllers"
+	"github.com/hugaojanuario/api-rest-gin/internal/handler/controllers"
 )
 
 func HandleRequests() {
