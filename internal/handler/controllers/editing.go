@@ -18,6 +18,12 @@ func EdtingStudent(c *gin.Context) {
 			"erro": err.Error()})
 		return
 	}
+	if err := models.ValidationStudent(&student); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"erro": err.Error()})
+		return
+	}
+
 	databases.DB.Model(&student).UpdateColumns(student)
 	c.JSON(http.StatusOK, student)
 

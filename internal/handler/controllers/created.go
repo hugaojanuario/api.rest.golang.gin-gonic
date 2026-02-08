@@ -15,6 +15,13 @@ func CreatedStudent(c *gin.Context) {
 			"erro": err.Error()})
 		return
 	}
+
+	if err := models.ValidationStudent(&student); err != nil{
+		c.JSON(http.StatusBadRequest, gin.H{
+			"erro": err.Error()})
+		return
+	}
+
 	databases.DB.Create(&student)
 	c.JSON(http.StatusCreated, student)
 }
